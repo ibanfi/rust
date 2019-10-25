@@ -45,6 +45,7 @@ fn post_user(user: web::Json<User>) -> HttpResponse {
     };
 }
 
+// TODO: Understand this
 /* const MAX_SIZE: usize = 1024;
 fn post_user2(payload: web::Payload) -> HttpResponse {
     // payload is a stream of Bytes objects
