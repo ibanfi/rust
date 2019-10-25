@@ -28,6 +28,7 @@ vagrant up
 ## Run Rust apps
 
 If you're ready to use the vagrant dev environment, login to it:
+
 `vagrant ssh`
 
 Further steps are the same on both (local/vm) environments
@@ -39,9 +40,13 @@ cargo run
 ## Test it
 ### Get users
 Request
+
 `curl http://localhost:3020/api/v1/users`
 ### Create a user
 Request #1
+
 `curl -X POST http://localhost:3020/api/v1/users -H "Content-Type: application/json" -d  '{ "name": "Martin Fowler", "email": "martin@martinfowler.com", "id": 11 }' -v`
+
 Request #2
+
 `curl -X POST http://localhost:3020/api/v1/users -H "Content-Type: application/json" -d  ' { "name": "MF", "email": "bad", "id": 11 }' -v`
