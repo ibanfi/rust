@@ -25,11 +25,11 @@ vagrant up
 
 `vagrant destroy`
 
-## Run Rust apps
-
 If you're ready to use the vagrant dev environment, login to it:
 
 `vagrant ssh`
+
+## Run Rust apps
 
 Further steps are the same on both (local/vm) environments
 ```
@@ -37,7 +37,12 @@ cd projects/actix-basic
 cargo run
 ```
 
-## Test it
+## Test it using cargo test
+Open a new terminal and run
+```cargo test```
+
+## Test it using curl
+Open a new terminal and these commands:
 ### Get users
 Request
 
