@@ -23,7 +23,7 @@ fn get_user() {
     assert_ne!(v[0].get("id"), None);
     assert_ne!(v[0].get("name"), None);
     assert_ne!(v[0].get("email"), None);
-    // Missing others
+    // Missing the others
     assert_eq!(v[0].as_object().unwrap().len(), 3);
 }
 
@@ -31,8 +31,13 @@ fn get_user() {
 fn post_user_01() {
     let msg = r#"{ "name": "MF", "email": "bad" }"#;
     let client = reqwest::Client::new();
-    let resp = client.post("http://localhost:3020/api/v1/users").json(&msg).send();
-    assert!(resp.is_err());
+    let resp = client.post("http://localhost:3020/api/v1/users")
+        .header("Content-Type", "application/json")
+        .body(msg)
+        .send()
+        .unwrap();
+    // Check whether the HTTP Code is 422
+    assert_eq!(resp.status(), reqwest::StatusCode::UNPROCESSABLE_ENTITY);
 
 }
 
@@ -40,9 +45,11 @@ fn post_user_01() {
 fn post_user_02() {
     let msg = r#"{"name": "Martin Fowler", "email": "martin@martinfowler.com" }"#;
     let client = reqwest::Client::new();
-    let resp = client.post("http://localhost:3020/api/v1/users").json(&msg).send();
-
-    assert!(!resp.is_err());
+    let resp = client.post("http://localhost:3020/api/v1/users")
+        .header("Content-Type", "application/json")
+        .body(msg)
+        .send()
+        .unwrap();
+    // Check whether the HTTP Code is 200
+    assert_eq!(resp.status(), reqwest::StatusCode::OK);
 }
-
-
