@@ -39,10 +39,8 @@ fn get_user() -> impl Responder {
 fn post_user(payload: web::Payload) -> impl Future<Item = HttpResponse, Error = Error> {
      payload.concat2().from_err().and_then(|body| {
          let _b = std::str::from_utf8(&body).unwrap();
-        println!("in: {:?}", _b);
          // Parse input
         let result = json::parse(_b);
-        println!("Res: {:?}", result);
         let mut injson = match result {
             Ok(v) => v,
             Err(e) => json::object! {"err" => e.to_string() },

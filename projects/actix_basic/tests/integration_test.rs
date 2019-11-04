@@ -53,3 +53,4 @@ fn post_user_02() {
     // Check whether the HTTP Code is 200
     assert_eq!(resp.status(), reqwest::StatusCode::OK);
 }
+
