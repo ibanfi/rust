@@ -72,12 +72,13 @@ Response
 > Content-Length: 73
 >
 * upload completely sent off: 73 out of 73 bytes
-< ** HTTP/1.1 200 OK **
+** HTTP/1.1 200 OK **
 < content-length: 92
 < date: Mon, 04 Nov 2019 13:26:11 GMT
 <
 Successful upload: User { id: 11, name: "Martin Fowler", email: "martin@martinfowler.com" }
-* Connection #0 to host localhost left intact```
+* Connection #0 to host localhost left intact
+```
 
 Request #2
 
@@ -98,7 +99,7 @@ Response
 > Content-Length: 43
 >
 * upload completely sent off: 43 out of 43 bytes
-< ** HTTP/1.1 422 Unprocessable Entity **
+** HTTP/1.1 422 Unprocessable Entity **
 < content-length: 17
 < date: Mon, 04 Nov 2019 13:27:02 GMT
 <
