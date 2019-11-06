@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
     config.vm.hostname = "rust-vm"
     config.vm.define "rust-vm"
   
-    config.vm.synced_folder "projects", "/home/vagrant/projects"
+    config.vm.synced_folder "../projects", "/home/vagrant/projects"
     config.vm.network "forwarded_port", guest: 3010, host: 3010
     config.vm.network "forwarded_port", guest: 7770, host: 7770
     config.vm.network "forwarded_port", guest: 7780, host: 7780
@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
      config.vm.provider "virtualbox" do |vb|
     # OSX workaround - disable microphone access
        vb.customize ["modifyvm", :id, "--audio", "none"]
-       vb.memory = 2048
+       vb.memory = 4096
      end
 
      config.vm.provision "copy-files", type: "file", source: "res", destination: "$HOME/res"

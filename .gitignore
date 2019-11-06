@@ -1,3 +1,2 @@
 .vagrant
-**/Cargo.lock
-rustlings
+.DS_Store
