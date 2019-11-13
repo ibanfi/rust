@@ -18,7 +18,7 @@ curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.r
 curl -sL https://rpm.nodesource.com/setup_10.x | bash
 
 # Install packages
-yum install -y gcc-c++ make libtool net-tools git device-mapper-persistent-data lvm2 yarn nodejs docker-ce docker-ce-cli openssl-devel unzip postgresql-devel epel-release redis
+yum install -y gcc-c++ make libtool net-tools git device-mapper-persistent-data lvm2 yarn nodejs docker-ce docker-ce-cli openssl-devel unzip postgresql-devel epel-release redis lsof golang gmp-devel
 
 # Start docker
 systemctl enable docker
