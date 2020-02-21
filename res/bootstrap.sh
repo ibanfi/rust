@@ -18,7 +18,7 @@ curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.r
 curl -sL https://rpm.nodesource.com/setup_10.x | bash
 
 # Install packages
-yum install -y gcc-c++ make libtool net-tools git device-mapper-persistent-data lvm2 yarn nodejs docker-ce docker-ce-cli openssl-devel unzip postgresql-devel epel-release redis lsof golang gmp-devel
+yum install -y gcc-c++ make libtool net-tools git device-mapper-persistent-data lvm2 yarn nodejs docker-ce docker-ce-cli openssl-devel unzip postgresql-devel epel-release redis lsof golang gmp-devel python-pip
 
 # Start docker
 systemctl enable docker
@@ -31,7 +31,5 @@ usermod -g docker vagrant
 curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
-# create rust target directory
-# Workaround for shared folder linking issues
-mkdir -p /opt/projects/target
-chown -R vagrant:vagrant /opt/projects
+# Install AWS CLI
+pip install awscli --upgrade --user
