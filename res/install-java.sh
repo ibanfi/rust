@@ -15,4 +15,5 @@ EOF
 
 # Command 5 -- Source Profile
 source /etc/profile.d/jdk13.sh
+rm openjdk-13.0.1_linux-x64_bin.tar.gz
 

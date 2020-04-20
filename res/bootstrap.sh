@@ -2,7 +2,7 @@
 
 # Set prompt
 echo "export PS1=\"\[\e[1;91m\]\h:\W $\[\e[0m\] \"" >> .bash_profile
-echo "eval `ssh-agent`" >> .bash_profile
+echo "eval \`ssh-agent\`" >> .bash_profile
 echo "ssh-add ~/.ssh/forte/id_rsa" >> .bash_profile
 
 # Set LANG environments
@@ -24,7 +24,7 @@ yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 yum remove git*
 
 # Install packages
-yum install -y gcc-c++ make libtool net-tools git2u-all device-mapper-persistent-data lvm2 yarn nodejs docker-ce docker-ce-cli openssl-devel unzip postgresql-devel epel-release redis lsof golang gmp-devel python-pip
+yum install -y gcc-c++ make libtool net-tools git2u-all device-mapper-persistent-data lvm2 yarn nodejs docker-ce docker-ce-cli openssl-devel unzip postgresql-devel epel-release redis lsof golang gmp-devel python-pip jq
 
 # Start docker
 systemctl enable docker
@@ -34,7 +34,7 @@ systemctl start docker
 usermod -g docker vagrant
 
 # Install docker-compose
-curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -sL "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
 # Install AWS CLI
