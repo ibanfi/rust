@@ -12,6 +12,7 @@
 cd vm-env-rust
 vagrant up
 ```
+
 ## Use the environment (connect to vm)
 
 `vagrant ssh`
